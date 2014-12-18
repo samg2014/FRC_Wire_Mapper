@@ -1,0 +1,57 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center|center"
+    >
+
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/add_device_device_name"
+            android:layout_gravity="center_horizontal"
+            android:enabled="true"
+            android:editable="true"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:textAlignment="gravity"
+            android:gravity="center"
+            android:hint="@string/add_device_device_name_hint" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/add_device_short_description"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center"
+            android:textAlignment="center"
+            android:editable="true"
+            android:clickable="true"
+            android:enabled="true"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:hint="@string/add_device_short_description_hint" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textMultiLine"
+            android:ems="10"
+            android:id="@+id/add_device_long_description"
+            android:layout_gravity="center_horizontal"
+            android:enabled="true"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:editable="true"
+            android:gravity="center"
+            android:hint="@string/add_device_long_description_hint" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/add_device_button_text"
+            android:id="@+id/add_device_submit"
+            android:layout_gravity="center_horizontal" />
+
+</LinearLayout>

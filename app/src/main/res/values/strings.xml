@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">FRC Wire Mapper</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="view_devices_label">View Devices</string>
+    <string name="add_device_label">Add Device</string>
+    <string name="title_activity_splash_screen">FRC Wire Mapper</string>
+    <string name="title_activity_device">Device Activity</string>
+    <string name="devices_title">Devices</string>
+    <string name="title_activity_single_fragment">Single Fragment Activity</string>
+    <string name="title_activity_test">Test</string>
+    <string name="title_activity_main">Main Activity</string>
+    <string name="add_device_device_name_hint">Device Name</string>
+    <string name="add_device_short_description_hint">Short Description</string>
+    <string name="add_device_long_description_hint">Long Description</string>
+    <string name="add_device_button_text">Add Device</string>
+    <string name="device_save_location">savedDevices.ser</string>
+    <string name="wire_save_location">savedWires.ser</string>
+    <string name="connection_save_location">savedConnections.ser</string>
+    <string name="title_activity_splash_screen2">Wire Mapper</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+
+</resources>

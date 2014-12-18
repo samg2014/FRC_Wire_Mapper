@@ -1,0 +1,56 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000"
+    tools:context="cs.abraham.mikee.sam.frcwiremapper._0_splash_screen.SplashScreen2">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:layout_width="0dp"
+
+                android:layout_height="match_parent"
+                android:layout_weight=".33"
+                android:src="#000000" />
+
+            <ImageView
+                android:layout_width="0dp"
+
+                android:layout_height="match_parent"
+                android:layout_weight=".34"
+                android:src="#FF0000" />
+
+
+            <ImageView
+                android:layout_width="0dp"
+
+                android:layout_height="match_parent"
+                android:layout_weight=".33"
+                android:src="#FFFFFF" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:weightSum="1"
+            android:gravity="center_horizontal">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:id="@+id/splash_screen_text"
+                android:textColor="#00FF00"
+                android:textSize="90dp" />
+        </LinearLayout>
+
+    </FrameLayout>
+</LinearLayout>
