@@ -13,6 +13,7 @@ import cs.abraham.mikee.sam.frcwiremapper.R;
 import cs.abraham.mikee.sam.frcwiremapper._2_device_list_screen.DeviceListActivity;
 import cs.abraham.mikee.sam.frcwiremapper._other_classes.Device;
 import cs.abraham.mikee.sam.frcwiremapper._other_classes.DeviceHolder;
+import cs.abraham.mikee.sam.frcwiremapper._other_classes.SaveUtilities;
 
 
 public class DeviceActivity extends ActionBarActivity {
@@ -61,14 +62,18 @@ public class DeviceActivity extends ActionBarActivity {
             ArrayList<Device> devices = dh.getDevices();
             devices.remove(device);
 
-//            Intent i = new Intent(this, DeviceListActivity.class);
-//            startActivity(i);
-
             this.finish();
 
             return true;
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onPause(){
+        super.onPause();
+
+        SaveUtilities.save(this);
     }
 }

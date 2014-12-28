@@ -29,4 +29,11 @@ public abstract class SingleFragmentActivity extends FragmentActivity {
 					.commit();
 		}
 	}
+
+    @Override
+    public void onPause(){
+        super.onPause();
+
+        SaveUtilities.save(this);
+    }
 }

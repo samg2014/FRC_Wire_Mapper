@@ -25,6 +25,7 @@ import cs.abraham.mikee.sam.frcwiremapper.R;
 import cs.abraham.mikee.sam.frcwiremapper._1_home_screen.HomeActivity;
 import cs.abraham.mikee.sam.frcwiremapper._other_classes.ConnectionHolder;
 import cs.abraham.mikee.sam.frcwiremapper._other_classes.DeviceHolder;
+import cs.abraham.mikee.sam.frcwiremapper._other_classes.SaveUtilities;
 import cs.abraham.mikee.sam.frcwiremapper._other_classes.WireHolder;
 
 /**
@@ -44,10 +45,13 @@ public class SplashScreen2 extends Activity {
 
         setContentView(R.layout.activity_splash_screen2);
 
+        //We don't want to see the action bar during the splash screen
         this.getActionBar().hide();
 
+        //Get the TextView on which to display the SplashScreen
         TextView tv = (TextView) this.findViewById(R.id.splash_screen_text);
 
+        //Set the text view to the HTML text specified
         tv.setText(Html.fromHtml("<html>" +
                 "<font color=#FF0000>&nbsp;&nbsp;D</font>" + "<font color=#FFFFFF>ON&nbsp;</font>" + "<font color=#000000>'T</font>" +
                 "<br>" +
@@ -59,7 +63,7 @@ public class SplashScreen2 extends Activity {
                 "<br>" +
                 "</html>"));
 
-
+        //Start HomeActivity.java after SPLASH_TIME_OUT amount of time
         new Handler().postDelayed(new Runnable() {
 
             /*
@@ -79,53 +83,8 @@ public class SplashScreen2 extends Activity {
             }
         }, SPLASH_TIME_OUT);
 
-        DeviceHolder dh = null;
-        try
-        {
-            FileInputStream fileIn = new FileInputStream(new File(this.getFilesDir(), getString(R.string.device_save_location)));
-            ObjectInputStream in = new ObjectInputStream(fileIn);
-            dh = (DeviceHolder) in.readObject();
-            in.close();
-            fileIn.close();
-        }catch(IOException | ClassNotFoundException i)
-        {
-            i.printStackTrace();
-        }
-        if(dh != null) {
-            DeviceHolder.get(this.getApplicationContext()).setDevices(dh.getDevices());
-        }
-
-        ConnectionHolder ch = null;
-        try
-        {
-            FileInputStream fileIn = new FileInputStream(new File(this.getFilesDir(), getString(R.string.connection_save_location)));
-            ObjectInputStream in = new ObjectInputStream(fileIn);
-            ch = (ConnectionHolder) in.readObject();
-            in.close();
-            fileIn.close();
-        }catch(IOException | ClassNotFoundException i)
-        {
-            i.printStackTrace();
-        }
-        if(ch != null) {
-            ConnectionHolder.get(this.getApplicationContext()).setConnections(ch.getConnections());
-        }
-
-        WireHolder wh = null;
-        try
-        {
-            FileInputStream fileIn = new FileInputStream(new File(this.getFilesDir(), getString(R.string.wire_save_location)));
-            ObjectInputStream in = new ObjectInputStream(fileIn);
-            wh = (WireHolder) in.readObject();
-            in.close();
-            fileIn.close();
-        }catch(IOException | ClassNotFoundException i)
-        {
-            i.printStackTrace();
-        }
-        if(wh != null) {
-            WireHolder.get(this.getApplicationContext()).setWires(wh.getWires());
-        }
+        //Read the saved data from the last time this app was opened
+        SaveUtilities.readData(this);
 
     }
 }

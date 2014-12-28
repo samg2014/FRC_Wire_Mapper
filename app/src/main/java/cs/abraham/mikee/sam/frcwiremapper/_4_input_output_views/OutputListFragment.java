@@ -17,20 +17,20 @@ import java.util.List;
 import cs.abraham.mikee.sam.frcwiremapper.R;
 import cs.abraham.mikee.sam.frcwiremapper._other_classes.Device;
 import cs.abraham.mikee.sam.frcwiremapper._other_classes.DeviceHolder;
-import cs.abraham.mikee.sam.frcwiremapper._other_classes.Input;
+import cs.abraham.mikee.sam.frcwiremapper._other_classes.Output;
 import cs.abraham.mikee.sam.frcwiremapper._other_classes.SaveUtilities;
 
-public class InputListFragment extends ListFragment {
+public class OutputListFragment extends ListFragment {
 
-    private ArrayList<Input> inputs;
+    private ArrayList<Output> outputs;
 
-    public void setInputs(ArrayList<Input> inputs){
-        this.inputs = inputs;
+    public void setOutputs(ArrayList<Output> outputs){
+        this.outputs = outputs;
     }
 
-    public static InputListFragment newInstance(ArrayList<Input> inputs) {
-        InputListFragment fragment = new InputListFragment();
-        fragment.setInputs(inputs);
+    public static OutputListFragment newInstance(ArrayList<Output> outputs) {
+        OutputListFragment fragment = new OutputListFragment();
+        fragment.setOutputs(outputs);
         return fragment;
     }
 
@@ -38,35 +38,35 @@ public class InputListFragment extends ListFragment {
      * Mandatory empty constructor for the fragment manager to instantiate the
      * fragment (e.g. upon screen orientation changes).
      */
-    public InputListFragment() {
+    public OutputListFragment() {
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setListAdapter(new InputAdapter(inputs));
+        setListAdapter(new OutputAdapter(outputs));
 
     }
 
-    public class InputAdapter extends ArrayAdapter<Input> {
-        public InputAdapter(ArrayList<Input> inputs) {
-            super(getActivity(), 0, inputs);
+    public class OutputAdapter extends ArrayAdapter<Output> {
+        public OutputAdapter(ArrayList<Output> outputs) {
+            super(getActivity(), 0, outputs);
         }
 
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
             //If we weren't given a view, inflate one
             if(convertView == null){
-                convertView = getActivity().getLayoutInflater().inflate(R.layout.list_item_input, null);
+                convertView = getActivity().getLayoutInflater().inflate(R.layout.list_item_output, null);
             }
 
             //Configure the view for this Crime
-            Input i = getItem(position);
+            Output i = getItem(position);
 
-            TextView name = (TextView) convertView.findViewById(R.id.input_list_view_name);
+            TextView name = (TextView) convertView.findViewById(R.id.output_list_view_name);
             name.setText(i.getName());
 
-            TextView shortDescription = (TextView) convertView.findViewById(R.id.input_list_short_description);
+            TextView shortDescription = (TextView) convertView.findViewById(R.id.output_list_short_description);
             shortDescription.setText(i.getShortDescription());
 
             return convertView;
@@ -95,7 +95,7 @@ public class InputListFragment extends ListFragment {
     @Override
     public void onResume(){
         super.onResume();
-        ((InputAdapter) this.getListAdapter()).notifyDataSetChanged();
+        ((OutputAdapter) this.getListAdapter()).notifyDataSetChanged();
     }
 
 
@@ -104,23 +104,23 @@ public class InputListFragment extends ListFragment {
         if (resultCode != Activity.RESULT_OK){
             return;
         }
-        Device device = ((InputListActivity)this.getActivity()).device;
-        Input input = new Input(device);
-        input.setName(data.getStringExtra(AddInputFragment.EXTRA_ADD_INPUT_INPUT_NAME));
-        input.setShortDescription(data.getStringExtra(AddInputFragment.EXTRA_ADD_INPUT_SHORT_DESCRIPTION));
-        input.setLongDescription(data.getStringExtra(AddInputFragment.EXTRA_ADD_INPUT_LONG_DESCRIPTION));
+        Device device = ((OutputListActivity)this.getActivity()).device;
+        Output output = new Output(device);
+        output.setName(data.getStringExtra(AddOutputFragment.EXTRA_ADD_OUTPUT_OUTPUT_NAME));
+        output.setShortDescription(data.getStringExtra(AddOutputFragment.EXTRA_ADD_OUTPUT_SHORT_DESCRIPTION));
+        output.setLongDescription(data.getStringExtra(AddOutputFragment.EXTRA_ADD_OUTPUT_LONG_DESCRIPTION));
 
 
         List<Fragment> fragments = this.getActivity().getSupportFragmentManager().getFragments();
         for(Fragment fragment : fragments){
-            if(fragment instanceof InputListFragment){
-                InputListFragment ilf = (InputListFragment) fragment;
-                //inputs.add(new Input(((DeviceActivity) this.getParent()).getDevice(), null));
-//                Input i = new Input(device);
-                device.addInput(input);
-                DeviceHolder.get(this.getActivity()).getDevice(device.getId()).addInput(input);
-                ((InputListFragment.InputAdapter) ilf.getListAdapter()).add(input);
-                ((InputListFragment.InputAdapter) ilf.getListAdapter()).notifyDataSetChanged();
+            if(fragment instanceof OutputListFragment){
+                OutputListFragment ilf = (OutputListFragment) fragment;
+                //outputs.add(new Output(((DeviceActivity) this.getParent()).getDevice(), null));
+//                Output i = new Output(device);
+                device.addOutput(output);
+                DeviceHolder.get(this.getActivity()).getDevice(device.getId()).addOutput(output);
+                ((OutputListFragment.OutputAdapter) ilf.getListAdapter()).add(output);
+                ((OutputListFragment.OutputAdapter) ilf.getListAdapter()).notifyDataSetChanged();
             }
         }
     }

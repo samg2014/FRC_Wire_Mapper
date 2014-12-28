@@ -6,6 +6,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import cs.abraham.mikee.sam.frcwiremapper.R;
+import cs.abraham.mikee.sam.frcwiremapper._other_classes.SaveUtilities;
 
 
 public class HomeActivity extends ActionBarActivity {
@@ -44,5 +45,12 @@ public class HomeActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onPause(){
+        super.onPause();
+
+        SaveUtilities.save(this);
     }
 }

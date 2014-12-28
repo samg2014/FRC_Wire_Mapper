@@ -25,6 +25,18 @@
         android:id="@+id/device_view_long_description"
         android:textSize="20dp"/>
 
+    <Button
+        android:paddingTop="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="View Inputs"
+        android:id="@+id/device_view_inputs_button"/>
 
+    <Button
+        android:paddingTop="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="View Outputs"
+        android:id="@+id/device_view_outputs_button"/>
 
 </LinearLayout>

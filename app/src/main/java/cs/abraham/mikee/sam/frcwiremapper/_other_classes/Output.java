@@ -9,10 +9,12 @@ public class Output implements Connectible {
     public UUID id;
     public Device device;
     public Connection connection;
+    String name;
+    public String shortDescription;
+    public String longDescription;
 
-    public Output(Device device, Connection connection) {
+    public Output(Device device) {
         this.device = device;
-        this.connection = connection;
     }
 
     public UUID getId() {
@@ -33,5 +35,29 @@ public class Output implements Connectible {
 
     public void setConnection(Connection connection) {
         this.connection = connection;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getShortDescription() {
+        return shortDescription;
+    }
+
+    public void setShortDescription(String shortDescription) {
+        this.shortDescription = shortDescription;
+    }
+
+    public String getLongDescription() {
+        return longDescription;
+    }
+
+    public void setLongDescription(String longDescription) {
+        this.longDescription = longDescription;
     }
 }

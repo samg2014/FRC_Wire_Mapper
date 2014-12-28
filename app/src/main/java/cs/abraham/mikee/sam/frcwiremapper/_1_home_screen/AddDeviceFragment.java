@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import cs.abraham.mikee.sam.frcwiremapper.R;
+import cs.abraham.mikee.sam.frcwiremapper._other_classes.SaveUtilities;
 
 public class AddDeviceFragment extends DialogFragment {
 	
@@ -20,6 +21,13 @@ public class AddDeviceFragment extends DialogFragment {
 
     EditText deviceName, sDescription, lDescription;
     Button submitButton;
+
+    @Override
+    public void onPause(){
+        super.onPause();
+
+        SaveUtilities.save(this);
+    }
 
 	@Override
 	public Dialog onCreateDialog(Bundle savedInstanceState){
